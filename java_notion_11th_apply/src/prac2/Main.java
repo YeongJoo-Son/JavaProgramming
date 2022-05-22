@@ -20,7 +20,7 @@ class Shape{
 		this.a=a;
 		this.b=b;
 		this.c=c;	
-		System.out.println("직육면체 넓이는 : "+(this.a)*(this.b)*(this.c));
+		System.out.println("직육면체 부피는 : "+(this.a)*(this.b)*(this.c));
 	}
 }
 
