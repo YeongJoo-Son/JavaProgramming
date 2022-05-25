@@ -24,7 +24,7 @@ class StringStack extends Stack{
 		return this.input.length;
 	}
 	
-	/* input을 초기화 시킨 후 배열 arr을 역순으로 input에 저장하여 리턴*/
+	/*a=-1이면 오류, a!=-1이라면 input[a--]을 반환*/
 	String pop() {
 		if(a==-1) {
 			System.out.println("스택이 비어있습니다.");
@@ -32,11 +32,10 @@ class StringStack extends Stack{
 		}
 		else {
 			return input[a--]+" ";
-		}
-		
+		}		
 	}
 	
-	// stack 구조 push랑 pop정확하게 구현하기
+	/*스택이 가득차 있다는 오류, 그렇지 않으면 ob값을 input배열에 저장*/
 	boolean push(String ob) {
 		if(a==input.length-1) {
 			System.out.println("스택이 가득 차 있습니다.");
