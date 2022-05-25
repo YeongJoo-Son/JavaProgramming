@@ -14,7 +14,7 @@ class StringStack extends Stack{
 	String []input;
 	int a=-1;
 	
-	/* 생성자 */
+	/* 생성자 */   
 	public StringStack(String[] input) {
 		this.input=input;
 	}
