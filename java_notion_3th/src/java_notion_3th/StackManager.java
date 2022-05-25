@@ -11,34 +11,42 @@ abstract class Stack{
 
 /* StringStack : Stack을 상속받는 클래스*/
 class StringStack extends Stack{
-	String input;
-	String []arr;
+	String []input;
+	int a=-1;
 	
 	/* 생성자 */
-	public StringStack(String input) {
+	public StringStack(String[] input) {
 		this.input=input;
 	}
 	
 	/* 길이 반환하는 메소드*/
 	int length() { 
-		return this.arr.length;
+		return this.input.length;
 	}
 	
 	/* input을 초기화 시킨 후 배열 arr을 역순으로 input에 저장하여 리턴*/
 	String pop() {
-		input="";
-		for(int i=this.arr.length-1;i>=0;i--) {
-			input +=(arr[i]+" ");
+		if(a==-1) {
+			System.out.println("스택이 비어있습니다.");
+			return null;
 		}
-		return input;
+		else {
+			return input[a--]+" ";
+		}
+		
 	}
 	
-	/* 문자열을 띄어쓰기로 구분하여 배열 arr에 저장하고 성공적인 push를 했다는 의미로 true 값 리턴*/
+	// stack 구조 push랑 pop정확하게 구현하기
 	boolean push(String ob) {
-		this.arr=this.input.split(" ");
-		return true;
+		if(a==input.length-1) {
+			System.out.println("스택이 가득 차 있습니다.");
+			return false;
+		}	
+		else {
+			input[++a]=ob;
+			return true;
+		}
 	}
-	
 }
 
 public class StackManager {
@@ -46,13 +54,17 @@ public class StackManager {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print(">> ");
-		String input = sc.nextLine();	// 한 줄로 받아오기	
+		String []input=new String[5];
 		
-		StringStack ss = new StringStack(input);  //input을 매개변수로 하여 객체 생성
+		StringStack ss = new StringStack(input);
 		
-		/*push가 성공적으로 수행되었으면 true를 반환하므로 if문 수행*/
-		if(ss.push(input)) {
-			System.out.println(ss.pop());  /*역순 출력*/
+		for(int i=0;i<5;i++) {
+			input[i]=sc.next();
+			ss.push(input[i]);
+		}
+		
+		for(int i=0;i<5;i++) {
+			System.out.print(ss.pop());
 		}
 	}
 }
