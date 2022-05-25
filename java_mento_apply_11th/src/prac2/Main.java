@@ -31,41 +31,25 @@ public class Main {
 		
 		System.out.println("수치를 입력하시오 (1개 : 직선, 2개 : 직사각형, 3개 : 직육면체)");
 		String input_line = sc.nextLine();
-		
-		int a=0,b=0,c=0;   
-		
 		String []arr = input_line.split(" ");
-		/*입력받은 수 구분짓기*/
-		switch(arr.length) {
-		/*직선일 경우*/
-		case 1:
-			a=Integer.parseInt(arr[0]);
-			break;
-		/*직사각형일 경우*/
-		case 2:
-			a=Integer.parseInt(arr[0]);
-			b=Integer.parseInt(arr[1]);
-			break;
-		/*직육면체일 경우*/
-		case 3:
-			a=Integer.parseInt(arr[0]);
-			b=Integer.parseInt(arr[1]);
-			c=Integer.parseInt(arr[2]);
-			break;
+		
+		int []num = new int[arr.length]; 
+		
+		for(int i=0;i<num.length;i++) {
+			num[i]=Integer.parseInt(arr[i]);
 		}
 		
-		/*직선일 경우*/
-		if(a!=0 && b==0 && c==0) {
-			Shape shape_line = new Shape(a);
-		}
-		/*직사각형일 경우*/
-		else if(a!=0 && b!=0 && c==0) {
-			Shape shape_rectangle = new Shape(a,b);
-		}
-		/*직육면체일 경우*/
-		else if(a!=0 && b!=0 && c!=0) {
-			Shape shape_cuboid = new Shape(a,b,c);
-		}
+		Shape shape;
+		switch(num.length) {	
+		case 1:
+			shape = new Shape(num[0]); // ->생성자 호출되는 시점
+			break;
+		case 2:
+			shape = new Shape(num[0],num[1]);
+			break;
+		case 3:
+			shape = new Shape(num[0],num[1],num[2]);
+		}	
 		
 	}
 }
