@@ -20,7 +20,7 @@ class Shape{
 	public Shape(int a, int b, int c) {
 		this.a=a;
 		this.b=b;
-		this.c=c;	
+		this.c=c;	   
 		System.out.println("직육면체 부피는 : "+(this.a)*(this.b)*(this.c));
 	}
 }
