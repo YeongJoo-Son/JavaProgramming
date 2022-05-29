@@ -23,39 +23,30 @@ class Mart{
 			System.out.println("올바르지 않습니다.");
 		}
 		
-		/*회원일 경우*/
-		else if(member) {
-			/*10,000원 이상일 경우 : 15% 할인*/
-			if(this.purchase>=10000 && this.purchase <50000) {
-				this.purchase = (int)(this.purchase*0.85); 
-			}
-			/*50,000원 이상일 경우 : 20% 할인*/
-			else if(this.purchase>=50000 && this.purchase < 100000) {
+		if(this.purchase>=10000&&this.purchase<50000) {
+			/*회원일 경우*/
+			if(member)
+				this.purchase = (int)(this.purchase*0.85);
+			else
+				this.purchase = (int)(this.purchase*0.95);
+		}
+		else if(this.purchase>=50000 && this.purchase<100000) {
+			if(member)
 				this.purchase = (int)(this.purchase*0.8);
-			}
-			/*100,000원 이상일 경우 : 30% 할인*/
-			else {
+			else
+				this.purchase = (int)(this.purchase*0.9);
+		}
+		else {
+			if(member)
 				this.purchase = (int)(this.purchase*0.7);
-			}
-			System.out.println("회원 ID : " + this.membername + "의 최종 결제액은 " + this.purchase + "입니다.");
+			else
+				this.purchase = (int)(this.purchase*0.8);
 		}
 		
-		/*비회원일 경우*/
-		else {
-			/*10,000원 이상일 경우 : 5% 할인*/
-			if(this.purchase>=10000 && this.purchase <50000) {
-				this.purchase = (int)(this.purchase*0.95);
-			}
-			/*50,000원 이상일 경우 : 10% 할인*/
-			else if(this.purchase>=50000 && this.purchase < 100000) {
-				this.purchase = (int)(this.purchase*0.9);
-			}
-			/*100,000원 이상일 경우 : 20% 할인*/
-			else {
-				this.purchase = (int)(this.purchase*0.8);
-			}
+		if(member)
+			System.out.println("회원 ID : " + this.membername + "의 최종 결제액은 " + this.purchase + "입니다.");
+		else
 			System.out.println("최종 결제액은 " + this.purchase + "입니다.");
-		}		
 	}	
 }
 
