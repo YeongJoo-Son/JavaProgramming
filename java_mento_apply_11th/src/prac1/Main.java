@@ -30,12 +30,14 @@ class Mart{
 			else
 				this.purchase = (int)(this.purchase*0.95);
 		}
+		
 		else if(this.purchase>=50000 && this.purchase<100000) {
 			if(member)
 				this.purchase = (int)(this.purchase*0.8);
 			else
 				this.purchase = (int)(this.purchase*0.9);
 		}
+		
 		else {
 			if(member)
 				this.purchase = (int)(this.purchase*0.7);
